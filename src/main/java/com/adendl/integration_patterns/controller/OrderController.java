@@ -24,7 +24,7 @@ public class OrderController {
     public Order createOrder(@RequestBody Order newOrder)
     {
         System.out.println("Sending order to queue");
-        this.jmsTemplate.convertAndSend("orders", newOrder);
+        this.jmsTemplate.convertAndSend("order_router", newOrder);
         return newOrder;
     }
 
