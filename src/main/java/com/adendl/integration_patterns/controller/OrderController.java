@@ -28,4 +28,14 @@ public class OrderController {
         return newOrder;
     }
 
+    @PostMapping("/bulkOrder")
+    public void createBulkOrder(@RequestBody Order[] bulkOrders)
+    {
+        System.out.println("Creating bulk orders");
+        for ( Order order : bulkOrders)
+        {
+            this.jmsTemplate.convertAndSend("order_router", order);
+        }
+    }
+
 }

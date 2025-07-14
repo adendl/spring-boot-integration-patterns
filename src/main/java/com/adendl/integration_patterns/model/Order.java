@@ -17,7 +17,7 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long orderId;
     private String type;
-    private BigDecimal amount;
+    private Double  amount;
     private String customerId;
     private String status;
 }
